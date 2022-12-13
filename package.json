@@ -20,7 +20,6 @@
     "mongoose": "^6.6.5",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.20",
-    "socket.io": "^4.5.3",
     "stripe": "^10.15.0"
   }
 }
