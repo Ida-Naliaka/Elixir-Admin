@@ -1,0 +1,129 @@
+.newOrder {
+display:flex;
+flex:1;
+flex-direction: column;
+align-items: center;
+margin-top: 10px;
+}
+
+.addOrderForm {
+  width: 100%;
+  margin-top: 10px;
+  height:fit-content;
+  flex-direction: column;
+}
+
+
+.addOrderButton {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.orderTable{
+  width: 90%;
+  height: 50%;
+
+}
+.searchcontainer{
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  padding: 5px
+}
+label {
+    margin: 5px;
+  }
+.searchinput {
+  border: none;
+  }
+  .searchresult {
+    cursor:pointer;
+    background-color:#E8E8E8;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    color: black;
+    margin: 5px;
+    
+}
+.searchParent {
+  margin:10px;
+  border-radius:20px;
+  display:flex;
+  padding:5px;
+  background-color:#E8E8E8;
+}
+.inputwrap{
+display:flex;
+}
+
+@media only screen and (max-width:600px) {
+  .newOrder {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    align-items: center;
+  }
+  
+  .addOrderForm {
+    width: 100%;
+    margin-top: 10px;
+    height:fit-content;
+    display: grid;
+  }
+  .inputwrap{
+    flex-direction: column;
+  }
+
+  .addOrderButton {
+    margin-top: 10px;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+  }
+  .searchresult {
+    cursor:pointer;
+    background-color:#E8E8E8;
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    color: black;
+    margin: 5px;
+    
+}
+.searchParent {
+  margin:5px;
+  border-radius:20px;
+  display:flex;
+  padding:5px;
+  background-color:#E8E8E8;
+}
+.searchcontainer{
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 0px;
+  padding: 5px;
+  width: 90%
+}
+input{
+  width:50%
+}
+.orderTable{
+  width: 90%;
+  height: 70vh;
+}
+}

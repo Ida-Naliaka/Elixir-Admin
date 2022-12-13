@@ -1,0 +1,23 @@
+.orderList{
+    flex: 4;
+}
+
+.orderListItem{
+    display: flex;
+    align-items: center;
+}
+
+.orderListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.orderListDelete{
+    color: red;
+    cursor: pointer;
+}

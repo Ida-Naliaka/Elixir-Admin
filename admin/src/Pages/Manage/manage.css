@@ -1,0 +1,47 @@
+.wrapper {
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:20px;
+    width:700px;
+
+}
+.addproduct {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin:10px auto;
+    width: 90%;
+    border-radius: 10px;
+
+  }
+  .manageproducts {
+    display:flex;
+    justify-content:center;
+    line-height: 40px;
+    width:90%;
+    margin:10px auto;
+    border-radius: 20px;
+    background-color:lightgrey;
+  }
+  .addNew {
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    width: fit-content;
+    margin-left:10px;
+  }
+.userAddButton {
+    width: fit-content;
+    border: none;
+    padding: 5px;
+    margin:5px;
+    background-color: blue;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+  }
+  

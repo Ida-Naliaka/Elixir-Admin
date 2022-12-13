@@ -1,0 +1,120 @@
+.topbar {
+    width: 100%;
+    height: 6;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    z-index: 999;
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  }
+  
+  .topbarWrapper {
+    height: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-family: 'Satisfy', cursive;
+    font-size:40px;
+    color: darkblue;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  
+  .topRight{
+      display: flex;
+      align-items: center;
+  }
+  
+  .topbarIconContainer {
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  .topIconBadge{
+      width: fit-content;
+      min-width: 15px;
+      height: 15px;
+      position: absolute;
+      top: -5px;
+      right: 0px;
+      background-color: red;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+  }
+  .topAvatar{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+  }
+  .hamburger {
+    display:none
+  }
+
+ @media only screen and (max-width:600px) {
+    .topLeft {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 60%;
+      width: 70%
+    }
+    .topRight{
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .logo{
+      font-size: 30px;
+      display: flex;
+      justify-content: flex-end;
+      margin-left: 35%;
+    }
+    .language,
+    .settings,
+    .avatar {
+      display:none
+    }
+    .hamburger{
+      padding:10px;
+      display:contents;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .hamicon {
+      font-size: 20px
+    }
+    .topbarIconContainer {
+      position: relative;
+      cursor: pointer;
+      margin-right: 0px;
+      color: #555;
+    }
+    
+    .topIconBadge{
+        width: fit-content;
+        min-width: 15px;
+        height: 15px;
+        position: absolute;
+        top: -5px;
+        right: 0px;
+        background-color: red;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+    }
+  }

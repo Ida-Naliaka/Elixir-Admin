@@ -1,0 +1,100 @@
+.redirect{
+    display:flex;   
+}
+.register-btn {
+    color: #115173;
+font-size: 12px;
+letter-spacing: 2px;
+text-decoration: none;
+padding: 4px 5px;
+border: 1px solid #115173;
+float: left;
+border-radius: 4px;
+text-transform: uppercase;
+float: right;
+text-align: center;
+margin-top:0;
+width: 100px;
+}
+.newUserButton{
+    width: 200px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.newUserItem {
+    width: 400px;
+    height:40px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+    
+  }
+  .newUserItem > input {
+    height:30px;
+    }
+    .password{
+        height: fit-content;
+        margin-left: 5px;
+        border: 1px solid white;
+        border-radius: 20%;
+        padding: 1px
+    }
+  .newUser {
+    justify-content: center;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+  }
+  .passinput{
+    display:flex;
+    align-items: center;
+    
+  }
+  .passinput > input{
+width:200px
+    }
+  h1 {
+    text-align:center
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+@media (max-width:600px) {
+  form {
+    margin:20px
+  }
+.redirect {
+    flex-direction: column;
+}
+.newUser {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.newUserItem{
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 10px, 5px;
+}
+.password{
+  font-size: 12px;
+}
+
+}
