@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { ActiveTabState } from "../../Context/ActiveTabProvider";
-import "./second.css";
+import "./Signup.css";
 import { VisibilityOutlined } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { publicRequest } from "../../requestMethods";
 
-const SecondTab = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -172,4 +172,4 @@ const SecondTab = () => {
     </div>
   );
 };
-export default SecondTab;
+export default Signup;

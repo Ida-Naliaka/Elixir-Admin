@@ -75,8 +75,8 @@ const registerUser = expressAsyncHandler(async (req, res) => {
       subject: "Please confirm your account",
       html: `<h1>Email Confirmation</h1>
       <h2>Hello ${user.name}</h2>
-      <p>Thank you for signing up to OvenWay. Please confirm your email by clicking on the following link</p>
-      <a href=https://ovenway.herokuapp.com/auth/${user.confirmationCode}> Click here</a>
+      <p>Thank you for signing up to Elixir. Please confirm your email by clicking on the following link</p>
+      <a href=https://elixir.cyclic.app.com/auth/${user.confirmationCode}> Click here</a>
       </div>`,
     };
     transporter.sendMail(mailOptions, function (err, data) {
@@ -185,7 +185,7 @@ const registerAdmin = expressAsyncHandler(async (req, res) => {
       subject: "Please confirm your account",
       html: `<h1>Email Confirmation</h1>
     <h2>Hello ${user.name}</h2>
-    <p>Please confirm your staff email by clicking on the following link</p>
+    <p>Please confirm your Elixir staff email by clicking on the following link</p>
     <a href=https://elixiradmin.cyclic.app.com/auth/${user.confirmationCode}> Click here</a>
     </div>`,
     };

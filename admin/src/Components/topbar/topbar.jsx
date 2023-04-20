@@ -7,8 +7,9 @@ import BasicModal from "../NotifModal";
 import { ActiveTabState } from "../../Context/ActiveTabProvider";
 import { Box, Typography, MenuItem, Menu } from "@material-ui/core";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import MenuIcon from "@mui/icons-material/Menu";
+//import MenuIcon from "@mui/icons-material/Menu";
 import { logout } from "../../Redux/userRedux";
+import { GridMenuIcon } from "@material-ui/data-grid";
 
 export default function Topbar() {
   const user = useSelector((state) => state.user.currentUser);
@@ -45,7 +46,7 @@ export default function Topbar() {
               <PopupState variant="popover" popupId="demo-popup-menu">
                 {(popupState) => (
                   <React.Fragment>
-                    <MenuIcon
+                    <GridMenuIcon
                       className="hamicon"
                       {...bindTrigger(popupState)}
                     />

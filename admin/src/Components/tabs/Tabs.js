@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import FirstTab from "./FirstTab";
-import SecondTab from "./SecondTab";
+import Login from "./Login";
+import Signup from "./Signup";
 import "./tabs.css";
 import { ActiveTabState } from "../../Context/ActiveTabProvider";
 import { useDispatch } from "react-redux";
@@ -40,7 +40,7 @@ const Tabs = () => {
         </li>
       </ul>
       <div className="outlet">
-        {activeTab === "login" ? <FirstTab /> : <SecondTab />}
+        {activeTab === "login" ? <Login /> : <Signup />}
       </div>
     </div>
   );

@@ -10,12 +10,12 @@ import ActiveTabProvider from './Context/ActiveTabProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
- <Provider store={store}>
-    <PersistGate loading="null" persistor={persistor}>
-    <ActiveTabProvider>
-        <App />
-    </ActiveTabProvider>
-</PersistGate>
-</Provider>
+        <Provider store={store}>
+            <PersistGate loading="null" persistor={persistor}>
+                <ActiveTabProvider>
+                    <App />
+                </ActiveTabProvider>
+            </PersistGate>
+        </Provider>
 </BrowserRouter>
 );
