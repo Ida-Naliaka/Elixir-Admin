@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./NewOrder.css";
-import axios from "axios";
 import { DeleteOutline, Search } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addProducttoCart, removeProductfromCart } from "../../Redux/cartRedux";
@@ -10,6 +9,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import { Avatar } from "@material-ui/core";
 import { AddOrder } from "../../Redux/apiCalls";
 import OutsideClickHandler from "react-outside-click-handler";
+import { publicRequest } from "../../requestMethods";
 
 export default function NewOrder() {
   const [orderData, setOrderData] = useState({});
@@ -32,8 +32,8 @@ export default function NewOrder() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios
-        .get(`/api/products/newOrder?search=${search}`, config)
+      await publicRequest
+        .get(`/products/newOrder?search=${search}`, config)
         .then((res) => {
           if (res.data.length > 0) {
             setSearchResult(res.data);

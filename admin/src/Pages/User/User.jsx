@@ -5,7 +5,6 @@ import {
     PhoneAndroid,
     Publish,
   } from "@material-ui/icons";
-import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
   import { Link, useNavigate } from "react-router-dom";
@@ -13,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
   import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { logout } from "../../Redux/userRedux";
+import {publicRequest } from "../../requestMethods"
   
   export default function User() {
     const user = useSelector((state) => state.user.currentUser);
@@ -28,7 +28,7 @@ const handleDelete=async()=>{
       Authorization: `Bearer ${user.token}`,
     },
   }
-  await axios.delete(`/api/users/admin/${user._id}`, config).then((res)=>{
+  await publicRequest.delete(`/users/admin/${user._id}`, config).then((res)=>{
     dispatch(logout());
     navigate('/')
   }).catch((error)=>{
@@ -48,7 +48,7 @@ const handleDelete=async()=>{
                   "Content-type": "application/json",
                 }
               }
-              await axios.put(`/api/user/updateadmin`, 
+              await publicRequest.put(`/user/updateadmin`, 
               {
                 userId: user._id,
                 name:name,

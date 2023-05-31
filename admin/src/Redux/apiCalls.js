@@ -16,7 +16,6 @@ import {
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 import {
   addOrderFailure,
   addOrderStart,
@@ -31,10 +30,11 @@ import {
   updateOrderStart,
   updateOrderSuccess,
 } from "./OrderRedux";
+import { publicRequest } from "../requestMethods";
 
 export const Signup = async (dispatch, user) => {
   try {
-    await axios.post(`/api/auth/registeradmin`, user);
+    await publicRequest.post(`/auth/registeradmin`, user);
     toast.success("Successfully Signed Up.Please Verify your Email");
   } catch (error) {
     toast.error(`${error.message}`);
@@ -44,7 +44,7 @@ export const Signup = async (dispatch, user) => {
 export const Login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post(`/api/auth/loginadmin`, user);
+    const res = await publicRequest.post(`/auth/loginadmin`, user);
     localStorage.setItem("userInfo", JSON.stringify(res.data));
     dispatch(loginSuccess(res.data));
     toast.success("Successfully Logged In");
@@ -57,7 +57,7 @@ export const Login = async (dispatch, user) => {
 export const GetProducts = async (dispatch) => {
   dispatch(getProductStart());
   try {
-    const res = await axios.get("/api/products");
+    const res = await publicRequest.get("/products");
     dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
@@ -74,7 +74,7 @@ export const DeleteProduct = async (id, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.delete(`/api/products/${id}`, config);
+    await publicRequest.delete(`/products/${id}`, config);
     dispatch(deleteProductSuccess(id));
   } catch (err) {
     dispatch(deleteProductFailure());
@@ -95,7 +95,7 @@ export const UpdateProduct = async (productId, updatedProduct, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.put(`/api/products/${productId}`, updatedProduct, config);
+    await publicRequest.put(`/products/${productId}`, updatedProduct, config);
     dispatch(updateProductSuccess({ productId, updatedProduct }));
     alert("Product Added Successfully");
   } catch (error) {
@@ -125,8 +125,8 @@ export const AddProduct = async (product, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    const { data } = await axios.post(
-      `/api/products/newproduct`,
+    const { data } = await publicRequest.post(
+      `/products/newproduct`,
       product,
       config
     );
@@ -150,7 +150,7 @@ export const AddOrder = async (order, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.post(`/api/orders/newproduct`, order, config).then((res) => {
+    await publicRequest.post(`/orders/newproduct`, order, config).then((res) => {
       dispatch(addOrderSuccess(res.data));
       alert("Product Added Successfully");
     });
@@ -163,7 +163,7 @@ export const AddOrder = async (order, dispatch) => {
 export const GetOrders = async (dispatch) => {
   dispatch(getOrderStart());
   try {
-    await axios.get("/api/orders").then((res) => {
+    await publicRequest.get("/orders").then((res) => {
       dispatch(getOrderSuccess(res.data));
     });
   } catch (err) {
@@ -184,8 +184,8 @@ export const UpdateOrder = async (orderId, updatedOrder, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios
-      .put(`/api/orders/${orderId}`, updatedOrder, config)
+    await publicRequest
+      .put(`/orders/${orderId}`, updatedOrder, config)
       .then((res) => {
         const response = res.data;
         dispatch(updateOrderSuccess({ orderId, response }));
@@ -205,7 +205,7 @@ export const DeleteOrder = async (id, dispatch) => {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.delete(`/api/orders/${id}`, config).then(() => {
+    await publicRequest.delete(`/orders/${id}`, config).then(() => {
       dispatch(deleteOrderSuccess(id));
     });
   } catch (err) {

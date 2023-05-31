@@ -14,7 +14,7 @@ import {
 import app from "../../FireBase";
 import { useDispatch } from "react-redux";
 import { UpdateProduct } from "../../Redux/apiCalls";
-import axios from "axios";
+import { publicRequest } from "../../requestMethods";
 
 export default function Product() {
   const location = useLocation();
@@ -61,7 +61,7 @@ export default function Product() {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const res = await axios.get(`orders/income?pid=${productId}`, config);
+        const res = await publicRequest.get(`/orders/income?pid=${productId}`, config);
         const list = res.data.sort((a, b) => {
           return a._id - b._id;
         });

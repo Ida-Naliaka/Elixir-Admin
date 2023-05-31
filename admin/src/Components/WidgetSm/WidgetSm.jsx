@@ -1,7 +1,7 @@
 import "./WidgetSm.css";
 import { Visibility } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { publicRequest } from "../../requestMethods";
 import { useSelector } from "react-redux";
 
 export default function WidgetSm() {
@@ -15,7 +15,7 @@ export default function WidgetSm() {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const res = await axios.get("/api/users/?new=true", config);
+        const res = await publicRequest.get("/users/?new=true", config);
         setUsers(res.data);
       } catch {}
     };

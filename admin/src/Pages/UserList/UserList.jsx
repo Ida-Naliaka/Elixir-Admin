@@ -5,8 +5,8 @@ import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
+import { publicRequest } from "../../requestMethods";
 
 export default function UserList() {
   const [userData, setUserData] = useState(userRows);
@@ -17,18 +17,19 @@ export default function UserList() {
         Authorization: `Bearer ${user.token}`,
       },
     };
-    await axios.get(`/api/users`, config).then((res) => {
+    await publicRequest.get(`/users`, config).then((res) => {
       setUserData(res.data);
     });
     
   };
   useEffect(() => {
     getUsers();
+    //eslint-disable-next-line
   }, [userData]);
 
   const handleDelete = async (id) => {
     try {
-      await axios.put(`/api/user/:${id}`);
+      await publicRequest.put(`/user/:${id}`);
       setUserData(userData.filter((item) => item._id !== id));
     } catch (error) {
       alert("Error Occured in deleting user");

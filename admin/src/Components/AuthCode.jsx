@@ -1,7 +1,8 @@
-import axios from "axios";
+import { publicRequest } from "../requestMethods";
+
 
 export const verifyUser = async(code) => {
- await axios.get(`/api/auth/admin/${code}`).then((response) => {
+ await publicRequest.get(`/auth/admin/${code}`).then((response) => {
         return response.data;
 })
 };

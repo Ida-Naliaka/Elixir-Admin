@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import "./WidgetLg.css";
-//import {format} from "timeago.js"
 import * as React from "react";
-import axios from "axios";
+import { publicRequest } from "../../requestMethods";
 import { useSelector } from "react-redux";
 import moment from "moment";
 moment().format();
@@ -18,7 +17,7 @@ export default function WidgetLg() {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        await axios.get(`/api/orders`, config).then((res) => {
+        await publicRequest.get(`/orders`, config).then((res) => {
           setOrders(res.data);
         });
       } catch {}

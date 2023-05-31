@@ -2,7 +2,7 @@ import "./featuredInfo.css";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import axios from "axios";
+import { publicRequest } from "../../requestMethods";
 
 export default function FeaturedInfo() {
   const [income, setIncome] = useState([]);
@@ -17,7 +17,7 @@ export default function FeaturedInfo() {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        await axios.get("/api/orders/income", config).then((res) => {
+        await publicRequest.get("/orders/income", config).then((res) => {
           setIncome(res.data);
           res.data.length > 1
             ? setPerc((res.data[1].total / res.data[0].total) * 100 - 100)

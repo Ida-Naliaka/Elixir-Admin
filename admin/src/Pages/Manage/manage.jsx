@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './manage.css';
@@ -6,6 +5,7 @@ import {useNavigate, Link} from 'react-router-dom';
 import { logout } from '../../Redux/userRedux';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { publicRequest } from "../../requestMethods";
 
 const Manage = () => {
     const dispatch=useDispatch();
@@ -17,7 +17,7 @@ const Manage = () => {
             Authorization: `Bearer ${user.token}`,
           },
         }
-        await axios.delete(`/api/users/admin/${user._id}`, config).then((res)=>{
+        await publicRequest.delete(`/users/admin/${user._id}`, config).then((res)=>{
           dispatch(logout());
           navigate('/')
         }).catch((error)=>{

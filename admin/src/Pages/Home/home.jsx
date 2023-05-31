@@ -5,9 +5,8 @@ import { userData } from "../../dummyData";
 import WidgetSm from "../../Components/WidgetSm/WidgetSm";
 import WidgetLg from "../../Components/WidgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
-import { ActiveTabState } from "../../Context/ActiveTabProvider";
+import { publicRequest } from "../../requestMethods";
 
 
 function Home() {
@@ -38,7 +37,7 @@ function Home() {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        await axios.get(`/api/users/stats`, config).then((res) => {
+        await publicRequest.get(`/users/stats`, config).then((res) => {
           const userData = res.data;
           userData.map((item) =>
             setUserStats((prev) => [
